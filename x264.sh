@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -28,7 +29,7 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
-cd $INSTALL_SDIR
+cd $_ffinstal
 echo "Removing old source"
 yum -y install bzip2
 #rm -vrf $INSTALL_SDIR/x264-snapshot*
@@ -47,5 +48,4 @@ cd x264-snapshot-*-stable/
 	make install
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
-cd $INSTALL_SDIR
 sleep 2

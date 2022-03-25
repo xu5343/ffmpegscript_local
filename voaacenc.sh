@@ -20,13 +20,14 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
 _package='vo-aacenc-0.1.3.tar.gz'
 clear
 sleep 2
-cd $INSTALL_SDIR
+cd $_ffinstal
 echo -e $RED"Installation of $_package ....... started"$RESET
 #rm -rf vo-aacenc*
 if [ -f "$_package" ]
@@ -44,5 +45,4 @@ fi
 	make install
 ldconfig
 echo -e $RED"Installation of $_package ....... Completed"$RESET
-cd $INSTALL_SDIR
 sleep 2

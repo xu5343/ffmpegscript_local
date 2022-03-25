@@ -20,12 +20,13 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 INSTALL_DDIR='/usr/local/cpffmpeg'
+_ffinstal='/ffmpeginstaller'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
 _package='x265'
 clear
 sleep 2
-cd $INSTALL_SDIR
+cd $_ffinstal
 echo -e $RED"Installation of $_package ....... started"$RESET
 #rm -rf x265*
 hg clone http://hg.videolan.org/x265
@@ -35,5 +36,4 @@ make
 make install
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
-cd $INSTALL_SDIR
 sleep 2
