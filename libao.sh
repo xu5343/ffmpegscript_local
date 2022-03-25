@@ -27,7 +27,6 @@ _package='libao-1.1.0.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-cd $INSTALL_SDIR/
 rm -rf libao*
 if [ -f "$_package" ]
 	then
