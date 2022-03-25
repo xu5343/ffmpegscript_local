@@ -27,7 +27,6 @@ _package='flac-1.3.0.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-cd $INSTALL_SDIR/
 rm -rf flac*
 if [ -f "$_package" ]
 	then
