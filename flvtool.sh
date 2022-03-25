@@ -30,7 +30,6 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 flvtool_source=$_package
 #install flvtool
 ldconfig
-   cd $INSTALL_SDIR
 echo "removing old source"
    rm -vrf flvtool*
 if [ -f "$_package" ]
