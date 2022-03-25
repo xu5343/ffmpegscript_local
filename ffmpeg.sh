@@ -42,6 +42,7 @@ else
 fi
 tar -xvzf ffmpeg-3.1.tar.gz
 cd ffmpeg-3.1
+export PKG_CONFIG_PATH=/usr/local/cpffmpeg/lib/pkgconfig
    ldconfig
 ./configure --prefix=$INSTALL_DDIR \
 --pkg-config-flags="--static" \
