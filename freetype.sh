@@ -28,7 +28,6 @@ clear
 echo -e $RED"Installation of $_package ....... started"$RESET
 subversion=$_package
 ldconfig
-cd $INSTALL_SDIR
 echo "removing old source"
    rm -vrf freetype*
 if [ -f "$_package" ]
