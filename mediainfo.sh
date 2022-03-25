@@ -37,7 +37,7 @@ cd $INSTALL_SDIR
 #64bit 32bit processor bug fix
 ldconfig
 if [ $(getconf WORD_BIT) = '32' ] && [ $(getconf LONG_BIT) = '64' ] ; then
-    rm -vrf mediainfo_64*
+    #rm -vrf mediainfo_64*
     #wget http://downloads.sourceforge.net/zenlib/libzen0-0.4.29-1.x86_64.CentOS_6.rpm
     #wget http://sourceforge.net/projects/mediainfo/files/binary/libmediainfo0/0.7.64/libmediainfo0-0.7.64-1.x86_64.CentOS_6.rpm
     #http://sourceforge.net/projects/mediainfo/files/binary/mediainfo/0.7.64/mediainfo-0.7.64-1.x86_64.CentOS_6.rpm
@@ -65,4 +65,5 @@ else
     rpm -vi mediainfo-0.7.32-1.i386.CentOS_5.rpm
     echo -e $RED"Installation of $_packagei386 ....... Completed"$RESET 
 fi
+cd $INSTALL_SDIR
 sleep 2

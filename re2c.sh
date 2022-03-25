@@ -30,7 +30,7 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
 cd $INSTALL_SDIR
 echo "Removing old source"
-   rm -vrf re2c*
+   #rm -vrf re2c*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -46,4 +46,5 @@ make -j$cpu
 make install
 ln -s /usr/local/cpffmpeg/bin/re2c /usr/local/bin/re2c
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

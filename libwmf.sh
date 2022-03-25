@@ -32,7 +32,7 @@ ldconfig
 cd $INSTALL_SDIR
 sleep 2
 echo "removing old source"
-   rm -vrf libwmf*
+   #rm -vrf libwmf*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -47,4 +47,5 @@ make -j$cpu
 make install
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

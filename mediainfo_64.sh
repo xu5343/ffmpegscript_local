@@ -29,7 +29,7 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
 cd $INSTALL_SDIR
 echo "Removing old source"
-rm -vrf mediainfo_64*
+#rm -vrf mediainfo_64*
 #wget http://downloads.sourceforge.net/zenlib/libzen0-0.4.29-1.x86_64.CentOS_6.rpm
 #wget http://sourceforge.net/projects/mediainfo/files/binary/libmediainfo0/0.7.64/libmediainfo0-0.7.64-1.x86_64.CentOS_6.rpm
 #http://sourceforge.net/projects/mediainfo/files/binary/mediainfo/0.7.64/mediainfo-0.7.64-1.x86_64.CentOS_6.rpm
@@ -47,4 +47,5 @@ rpm -ivh libzen0-0.4.29-1.x86_64.CentOS_6.rpm
 rpm -ivh libmediainfo0-0.7.64-1.x86_64.CentOS_6.rpm
 rpm -ivh mediainfo-0.7.64-1.x86_64.CentOS_6.rpm
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

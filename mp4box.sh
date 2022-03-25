@@ -28,7 +28,7 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 cd $INSTALL_SDIR/
-rm -rf gpac*
+#rm -rf gpac*
 if [ -e "/etc/yum.conf" ];then
 yum -y install freetype-devel SDL-devel freeglut-devel
 fi
@@ -48,4 +48,5 @@ make install
 ln -sf /usr/local/cpffmpeg/bin/MP4Box /usr/local/bin/MP4Box
 ln -sf /usr/local/cpffmpeg/bin/MP4Box /usr/bin/MP4Box
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

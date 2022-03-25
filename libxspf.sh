@@ -28,7 +28,7 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 cd $INSTALL_SDIR/
-rm -rf libxspf*
+#rm -rf libxspf*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -44,5 +44,7 @@ cd libxspf-1.2.0/
 make -j$cpu
 make install
 ldconfig
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

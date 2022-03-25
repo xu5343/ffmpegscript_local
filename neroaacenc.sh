@@ -29,7 +29,7 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
 cd $INSTALL_SDIR
 echo "Removing old source"
-rm -vrf nero*
+#rm -vrf nero*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -42,4 +42,5 @@ unzip NeroDigitalAudio.zip -d nero
 cd nero/linux
 sudo install -D -m755 neroAacEnc /usr/local/bin
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

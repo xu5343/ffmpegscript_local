@@ -29,7 +29,7 @@ sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 
 cd $INSTALL_SDIR/
-rm -rf mplayer*
+#rm -rf mplayer*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -51,4 +51,5 @@ ln -sf /usr/local/cpffmpeg/bin/mencoder /usr/bin/mencoder
 ln -sf /usr/local/cpffmpeg/bin/mencoder /usr/local/bin/mencoder
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

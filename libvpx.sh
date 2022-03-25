@@ -26,7 +26,7 @@ sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 
 cd $INSTALL_SDIR/
-rm -rf libvpx
+#rm -rf libvpx
 git clone --depth 1 https://chromium.googlesource.com/webm/libvpx.git
 cd libvpx
 ./configure --prefix=$INSTALL_DDIR --enable-shared --enable-pic
@@ -35,4 +35,5 @@ make install
 make clean
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

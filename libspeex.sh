@@ -26,9 +26,9 @@ export TMPDIR=$HOME/tmp
 _package='speex-1.2rc1.tar.gz'
 clear
 sleep 2
-echo -e $RED"Installation of $_package ....... started"$RESET
 cd $INSTALL_SDIR/
-rm -rf speex*
+echo -e $RED"Installation of $_package ....... started"$RESET
+#rm -rf speex*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -43,4 +43,5 @@ cd speex-1.2rc1/
 	make install
 ldconfig
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR/
 sleep 2

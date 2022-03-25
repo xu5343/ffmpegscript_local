@@ -31,7 +31,7 @@ libopencoreamr=$_package
 ldconfig
 cd $INSTALL_SDIR
 echo "removing old source"
-   rm -vrf opencore*
+   #rm -vrf opencore*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -45,6 +45,6 @@ fi
 
 make -j$cpu
 make install
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

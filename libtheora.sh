@@ -31,7 +31,7 @@ libtheora=$_package
 ldconfig
    cd $INSTALL_SDIR
 echo "removing old source"
-   rm -vrf libtheora*
+   #rm -vrf libtheora*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -47,4 +47,5 @@ make -j$cpu
 make install
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR/
 sleep 2

@@ -28,7 +28,7 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 cd $INSTALL_SDIR/
-rm -rf presets*
+#rm -rf presets*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -41,4 +41,5 @@ cp -vrf presets/* /usr/local/cpffmpeg/share/ffmpeg/
 cp -vrf presets/* /usr/share/ffmpeg/
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

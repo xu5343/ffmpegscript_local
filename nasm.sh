@@ -36,7 +36,7 @@ fi
 if [ -e "/usr/bin/nasm" ]; then
 	ln -sf /usr/bin/nasm  /usr/local/cpffmpeg/bin/nasm
 else
-	rm -vrf nasm*
+	#rm -vrf nasm*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -53,4 +53,5 @@ fi
 fi
 ldconfig
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2
