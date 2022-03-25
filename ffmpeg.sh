@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -30,7 +31,7 @@ ffmpeg_source=$_package
 ldconfig
 echo -e $RED"Installation of $_package ....... started"$RESET
 echo "Removing old source"
-cd $INSTALL_SDIR/
+cd $_ffinstal/
    #rm -vrf ffmpeg*
 if [ -f "$_package" ]
 	then
@@ -58,6 +59,6 @@ cd ffmpeg-3.1
    ln -sf /usr/local/cpffmpeg/bin/qt-faststart /usr/bin/qt-faststart
    ldconfig
    /usr/bin/ffmpeg -formats
-cd $INSTALL_SDIR/
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

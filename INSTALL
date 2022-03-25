@@ -12,5 +12,5 @@ i）检查服务器中是否安装了yum。 如果没有yum，
 
 i）下载最新版本 ffmpeginstaller.X.X.X.tar.gz , where X.X.X is the version
 	# tar -xvzf ffmpeginstaller.X.X.X.tar.gz
-	#cd /usr/src/ffmpegscript/
+	#cd /ffmpeginstaller
 	# ./install.sh

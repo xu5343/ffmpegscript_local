@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -27,7 +28,7 @@ _package='libogg-1.3.1.tar.gz'
 echo -e $RED"Installation of $_package ....... started"$RESET
 libogg_source=$_package
 ldconfig
-    cd $INSTALL_SDIR
+    cd $_ffinstal
 echo "removing old source"
    	#rm -vrf libogg*
 if [ -f "$_package" ]
@@ -42,6 +43,6 @@ fi
 	./configure --prefix=$INSTALL_DDIR
 	make -j$cpu
 	make install
-cd $INSTALL_SDIR/
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

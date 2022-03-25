@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -30,7 +31,7 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 lame_source=$_package
 ldconfig
 echo "removing old source"
-cd $INSTALL_SDIR/
+cd $_ffinstal/
    #rm -vrf lame*
 if [ -f "$_package" ]
 	then
@@ -45,6 +46,6 @@ fi
 
 make -j$cpu
 make install
-cd $INSTALL_SDIR/
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

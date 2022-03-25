@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -27,7 +28,7 @@ _package='faad2-2.7.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-cd $INSTALL_SDIR/
+cd $_ffinstal/
 #rm -rf faad2*
 if [ -f "$_package" ]
 	then
@@ -43,6 +44,6 @@ cd faad2-2.7/
 
 make -j$cpu
 make install
-cd $INSTALL_SDIR/
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

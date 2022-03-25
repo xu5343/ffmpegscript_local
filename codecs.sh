@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -32,7 +33,7 @@ codec_source=$_package
 #install codecs
 ldconfig
 echo "removing old source"
-cd $INSTALL_SDIR/
+cd $_ffinstal/
    #rm -fr all* 
 if [ -f "$_package" ]
 	then
@@ -46,6 +47,6 @@ fi
    mkdir -pv $INSTALL_DDIR/lib/codecs/
    cp -vrf all-20110131/* $INSTALL_DDIR/lib/codecs/
    chmod -R 755 /usr/local/cpffmpeg/lib/codecs/
-cd $INSTALL_SDIR/
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2
