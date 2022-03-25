@@ -28,7 +28,6 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
-cd $INSTALL_SDIR
 echo "Removing old source"
 yum -y install bzip2
 rm -vrf $INSTALL_SDIR/x264-snapshot*
@@ -40,7 +39,7 @@ else
 		echo "$_package not found, Try Downloading......"
 		wget https://download.videolan.org/x264/snapshots/$_package
 fi  
-tar xvjf last_stable_x264.tar.bz2
+tar xvjf $_package
 cd x264-snapshot-*-stable/
 	./configure  --prefix=$INSTALL_DDIR --enable-shared --disable-asm
 	make -j$cpu
