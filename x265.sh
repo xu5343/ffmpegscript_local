@@ -28,17 +28,18 @@ clear
 sleep 2
 cd $_ffinstal
 echo -e $RED"Installation of $_package ....... started"$RESET
-yum -y install cmake
 #rm -rf x265*
-if [ -f "$_package" ]
-	then
-		echo "$_package found, Skip Downloads"
-else
-		echo "$_package not found, Try Downloading......"
-		wget http://ftp.videolan.org/pub/videolan/x265/$_package
-fi
-tar -xzf $_package
-cd x265_3.2/build/linux
+#if [ -f "$_package" ]
+#	then
+#		echo "$_package found, Skip Downloads"
+#else
+#		echo "$_package not found, Try Downloading......"
+#		wget http://ftp.videolan.org/pub/videolan/x265/$_package
+#fi
+#tar -xzf $_package
+#cd x265_3.2/build/linux
+hg clone http://hg.videolan.org/x265
+cd x265/build/linux
 PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DENABLE_SHARED:bool=off ../../source
 make
 make install
