@@ -14,7 +14,3 @@ i）下载最新版本 ffmpeginstaller.X.X.X.tar.gz , where X.X.X is the version
 	# tar -xvzf ffmpeginstaller.X.X.X.tar.gz
 	#cd ffmpeginstaller.X.X.X/
 	# ./install.sh
- 
-
-有任何问题请联系：jie5343@126.com
-
