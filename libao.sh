@@ -27,7 +27,8 @@ _package='libao-1.1.0.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-rm -rf libao*
+cd $INSTALL_SDIR/
+#rm -rf libao*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -41,5 +42,6 @@ cd libao-1.1.0/
 make -j$cpu
 make install
 ldconfig
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

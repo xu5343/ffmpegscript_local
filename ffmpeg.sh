@@ -30,7 +30,8 @@ ffmpeg_source=$_package
 ldconfig
 echo -e $RED"Installation of $_package ....... started"$RESET
 echo "Removing old source"
-   rm -vrf ffmpeg*
+cd $INSTALL_SDIR/
+   #rm -vrf ffmpeg*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -57,6 +58,6 @@ cd ffmpeg-3.1
    ln -sf /usr/local/cpffmpeg/bin/qt-faststart /usr/bin/qt-faststart
    ldconfig
    /usr/bin/ffmpeg -formats
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

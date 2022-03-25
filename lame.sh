@@ -30,7 +30,8 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 lame_source=$_package
 ldconfig
 echo "removing old source"
-   rm -vrf lame*
+cd $INSTALL_SDIR/
+   #rm -vrf lame*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -44,6 +45,6 @@ fi
 
 make -j$cpu
 make install
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

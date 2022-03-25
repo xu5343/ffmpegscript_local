@@ -27,7 +27,8 @@ _package='faad2-2.7.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-rm -rf faad2*
+cd $INSTALL_SDIR/
+#rm -rf faad2*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -42,6 +43,6 @@ cd faad2-2.7/
 
 make -j$cpu
 make install
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

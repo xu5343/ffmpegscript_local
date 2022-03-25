@@ -29,7 +29,8 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 subversion=$_package
 ldconfig
 echo "removing old source"
-   rm -vrf freetype*
+cd $INSTALL_SDIR/
+   #rm -vrf freetype*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -43,6 +44,6 @@ fi
 
 make -j$cpu
 make install
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

@@ -28,7 +28,7 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 cd $INSTALL_SDIR/
-rm -rf libogg**
+#rm -rf libogg**
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -42,5 +42,6 @@ cd liboggz-1.1.1/
 make -j$cpu
 make install
 ldconfig
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

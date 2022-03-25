@@ -32,7 +32,8 @@ codec_source=$_package
 #install codecs
 ldconfig
 echo "removing old source"
-   rm -fr all* 
+cd $INSTALL_SDIR/
+   #rm -fr all* 
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -45,6 +46,6 @@ fi
    mkdir -pv $INSTALL_DDIR/lib/codecs/
    cp -vrf all-20110131/* $INSTALL_DDIR/lib/codecs/
    chmod -R 755 /usr/local/cpffmpeg/lib/codecs/
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

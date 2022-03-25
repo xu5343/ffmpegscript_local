@@ -26,7 +26,8 @@ _package='fdk-aac-0.1.3.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-rm -rf fdk-aac*
+cd $INSTALL_SDIR/
+#rm -rf fdk-aac*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -39,6 +40,6 @@ cd fdk-aac-0.1.3/
 	./configure  --prefix=$INSTALL_DDIR
 	make -j$cpu
 	make install
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

@@ -29,7 +29,7 @@ libogg_source=$_package
 ldconfig
     cd $INSTALL_SDIR
 echo "removing old source"
-   	rm -vrf libogg*
+   	#rm -vrf libogg*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -42,6 +42,6 @@ fi
 	./configure --prefix=$INSTALL_DDIR
 	make -j$cpu
 	make install
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

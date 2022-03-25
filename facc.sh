@@ -26,7 +26,8 @@ _package='faac-1.28.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-rm -rf facc*
+cd $INSTALL_SDIR/
+#rm -rf facc*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -41,6 +42,6 @@ cd faac-1.28/
 
 make -j$cpu
 make install
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

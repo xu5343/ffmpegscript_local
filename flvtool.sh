@@ -31,7 +31,8 @@ flvtool_source=$_package
 #install flvtool
 ldconfig
 echo "removing old source"
-   rm -vrf flvtool*
+cd $INSTALL_SDIR/
+   #rm -vrf flvtool*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -46,5 +47,6 @@ fi
    /usr/local/cpffmpeg/bin/ruby setup.rb install
    ln -s /usr/local/cpffmpeg/bin/flvtool2 /usr/local/bin/flvtool2
    ln -s /usr/local/cpffmpeg/bin/flvtool2 /usr/bin/flvtool2
+   cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

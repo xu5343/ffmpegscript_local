@@ -30,7 +30,8 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 amr=$_package
 ldconfig
 echo "removing old source"
-   rm -vrf amrnb*
+cd $INSTALL_SDIR/
+   #rm -vrf amrnb*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -43,6 +44,6 @@ fi
    ./configure --prefix=$INSTALL_DDIR
 make -j$cpu
 make install
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

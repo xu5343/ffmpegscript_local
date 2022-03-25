@@ -35,7 +35,8 @@ if [ -e "/usr/bin/git" ]; then
 	mkdir -pv /usr/local/cpffmpeg/bin/
 	ln -sf /usr/bin/git  /usr/local/cpffmpeg/bin/git
 else
-	rm -rf git*
+cd $INSTALL_SDIR/
+	#rm -rf git*
 	if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -49,6 +50,6 @@ else
 	make -j$cpu
 	make install
 fi
-
+cd $INSTALL_SDIR/
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2
