@@ -26,7 +26,6 @@ _package='faac-1.28.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-cd $INSTALL_SDIR/
 rm -rf facc*
 if [ -f "$_package" ]
 	then
