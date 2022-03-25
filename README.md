@@ -20,7 +20,7 @@ it's free
 ```
 yum install git -y 
 cd /usr/local/src  
-git clone https://github.com/ninetian/ffmpeginstaller.git ffmpeginstaller  
+git clone https://github.com/xu5343/ffmpegscript_local.git ffmpeginstaller  
 cd ffmpeginstaller  
 sh install.sh  
 ```
