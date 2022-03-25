@@ -23,14 +23,21 @@ INSTALL_DDIR='/usr/local/cpffmpeg'
 _ffinstal='/ffmpeginstaller'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='x265'
+_package='x265_3.2.tar.gz'
 clear
 sleep 2
 cd $_ffinstal
 echo -e $RED"Installation of $_package ....... started"$RESET
 #rm -rf x265*
-hg clone http://hg.videolan.org/x265
-cd x265/build/linux
+if [ -f "$_package" ]
+	then
+		echo "$_package found, Skip Downloads"
+else
+		echo "$_package not found, Try Downloading......"
+		wget http://ftp.videolan.org/pub/videolan/x265/$_package
+fi
+tar -xzf $_package
+cd x265_3.2/build/linux
 cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$INSTALL_DDIR -DENABLE_SHARED:bool=off ../../source
 make
 make install
