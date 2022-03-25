@@ -27,7 +27,6 @@ _package='faad2-2.7.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-cd $INSTALL_SDIR/
 rm -rf faad2*
 if [ -f "$_package" ]
 	then
