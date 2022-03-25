@@ -29,7 +29,6 @@ sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 amr=$_package
 ldconfig
-   cd $INSTALL_SDIR
 echo "removing old source"
    rm -vrf amrnb*
 if [ -f "$_package" ]
