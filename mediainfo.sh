@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 #FFMPEG安装脚本
 
 #  版权所有（C）2007-2016 Sherin.co.in。
