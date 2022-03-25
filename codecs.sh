@@ -31,7 +31,6 @@ codec_source=$_package
 
 #install codecs
 ldconfig
-   cd $INSTALL_SDIR
 echo "removing old source"
    rm -fr all* 
 if [ -f "$_package" ]
