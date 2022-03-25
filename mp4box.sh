@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -27,7 +28,7 @@ _package='gpac-full-0.5.0.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-cd $INSTALL_SDIR/
+cd $_ffinstal/
 #rm -rf gpac*
 if [ -e "/etc/yum.conf" ];then
 yum -y install freetype-devel SDL-devel freeglut-devel
@@ -48,5 +49,4 @@ make install
 ln -sf /usr/local/cpffmpeg/bin/MP4Box /usr/local/bin/MP4Box
 ln -sf /usr/local/cpffmpeg/bin/MP4Box /usr/bin/MP4Box
 echo -e $RED"Installation of $_package ....... Completed"$RESET
-cd $INSTALL_SDIR
 sleep 2

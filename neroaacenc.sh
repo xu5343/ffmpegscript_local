@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -27,7 +28,7 @@ _package='NeroDigitalAudio.zip'
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
-cd $INSTALL_SDIR
+cd $_ffinstal
 echo "Removing old source"
 #rm -vrf nero*
 if [ -f "$_package" ]
@@ -42,5 +43,4 @@ unzip NeroDigitalAudio.zip -d nero
 cd nero/linux
 sudo install -D -m755 neroAacEnc /usr/local/bin
 echo -e $RED"Installation of $_package ....... Completed"$RESET
-cd $INSTALL_SDIR
 sleep 2

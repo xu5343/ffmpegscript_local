@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -27,7 +28,7 @@ _package='mediainfo_64.zip'
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
-cd $INSTALL_SDIR
+cd $_ffinstal
 echo "Removing old source"
 #rm -vrf mediainfo_64*
 #wget http://downloads.sourceforge.net/zenlib/libzen0-0.4.29-1.x86_64.CentOS_6.rpm
@@ -47,5 +48,4 @@ rpm -ivh libzen0-0.4.29-1.x86_64.CentOS_6.rpm
 rpm -ivh libmediainfo0-0.7.64-1.x86_64.CentOS_6.rpm
 rpm -ivh mediainfo-0.7.64-1.x86_64.CentOS_6.rpm
 echo -e $RED"Installation of $_package ....... Completed"$RESET
-cd $INSTALL_SDIR
 sleep 2

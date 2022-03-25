@@ -17,6 +17,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -25,7 +26,7 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 
-cd $INSTALL_SDIR/
+cd $_ffinstal/
 #rm -rf libvpx
 git clone --depth 1 https://chromium.googlesource.com/webm/libvpx.git
 cd libvpx
@@ -35,5 +36,4 @@ make install
 make clean
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
-cd $INSTALL_SDIR
 sleep 2

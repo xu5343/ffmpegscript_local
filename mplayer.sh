@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -28,7 +29,7 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 
-cd $INSTALL_SDIR/
+cd $_ffinstal/
 #rm -rf mplayer*
 if [ -f "$_package" ]
 	then
@@ -51,5 +52,4 @@ ln -sf /usr/local/cpffmpeg/bin/mencoder /usr/bin/mencoder
 ln -sf /usr/local/cpffmpeg/bin/mencoder /usr/local/bin/mencoder
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
-cd $INSTALL_SDIR
 sleep 2

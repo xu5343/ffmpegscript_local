@@ -20,6 +20,7 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+_ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
@@ -33,7 +34,7 @@ if [ $(getconf WORD_BIT) = '32' ] && [ $(getconf LONG_BIT) = '64' ] ; then
 else
     echo -e $RED"Installation of $_packagei386 ....... started"$RESET 
 fi
-cd $INSTALL_SDIR
+cd $_ffinstal
 #64bit 32bit processor bug fix
 ldconfig
 if [ $(getconf WORD_BIT) = '32' ] && [ $(getconf LONG_BIT) = '64' ] ; then
@@ -65,5 +66,4 @@ else
     rpm -vi mediainfo-0.7.32-1.i386.CentOS_5.rpm
     echo -e $RED"Installation of $_packagei386 ....... Completed"$RESET 
 fi
-cd $INSTALL_SDIR
 sleep 2
