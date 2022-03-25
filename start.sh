@@ -99,7 +99,6 @@ sh voamrwbenc.sh
 sh libspeex.sh
 sh libflac.sh
 sh libao.sh
-sh libvpx.sh
 sh uriparser.sh
 #sh libxspf.sh
 sh liboggz.sh
@@ -114,6 +113,7 @@ sh faad2.sh
 sh yasm.sh
 sh nasm.sh
 sh xvid.sh
+sh libvpx.sh
 sh x264.sh
 sh x265.sh
 sh re2c.sh
