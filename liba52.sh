@@ -27,7 +27,6 @@ _package='a52dec-0.7.4.tar.gz'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-cd $INSTALL_SDIR/
 rm -rf a52dec-0.7.4*
 if [ -f "$_package" ]
 	then
