@@ -30,7 +30,7 @@ sh presetup.sh
 
 if [ -e "/etc/yum.conf" ];then
         echo "Ensuring required RPM ........"
-        yum install gcc gcc-c++ libgcc gd gd-devel gettext freetype \
+        yum install bzip2 gcc gcc-c++ libgcc gd gd-devel gettext freetype \
         	freetype-devel ImageMagick ImageMagick-devel libjpeg* libjpeg-devel* \
         	libpng* libpng-devel* libstdc++* libstdc++-devel* libtiff* \
         	libtiff-devel* libtool*  libxml* libxml2* \
@@ -47,7 +47,7 @@ fi
 
 if [ -e "/etc/debian_version" ];then
 	echo "Ensuring Debian packages ....."
-	apt-get install gcc libgd-dev gettext libfreetype6 libfreetype6-dev libpng-dev libstdc++-dev \
+	apt-get install bzip2 gcc libgd-dev gettext libfreetype6 libfreetype6-dev libpng-dev libstdc++-dev \
 		libtiff-dev libtool libxml2 libxml2-dev automake autoconf libncurses-dev ncurses-dev patch \
 		make git subversion -y
 fi
