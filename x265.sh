@@ -25,8 +25,9 @@ export TMPDIR=$HOME/tmp
 _package='x265'
 clear
 sleep 2
+cd $INSTALL_SDIR
 echo -e $RED"Installation of $_package ....... started"$RESET
-rm -rf x265*
+#rm -rf x265*
 hg clone http://hg.videolan.org/x265
 cd x265/build/linux
 cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$INSTALL_DDIR -DENABLE_SHARED:bool=off ../../source
@@ -34,4 +35,5 @@ make
 make install
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

@@ -31,7 +31,7 @@ subversion=$_package
 ldconfig
 cd $INSTALL_SDIR
 echo "removing old source"
-   rm -vrf $INSTALL_SDIR/subversion*
+   #rm -vrf $INSTALL_SDIR/subversion*
 if [ -e "/etc/yum.conf" ];then
 	yum -y install subversion
 fi
@@ -52,4 +52,5 @@ fi
 	make install
 fi
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

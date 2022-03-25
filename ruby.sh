@@ -39,7 +39,7 @@ elif  [ -e "/usr/local/cpanel/scripts/installruby" ]; then
 else
 	cd $INSTALL_SDIR
 	echo "removing old source"
-   	rm -vrf ruby*
+   	#rm -vrf ruby*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -54,4 +54,5 @@ fi
 	make install
 fi
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

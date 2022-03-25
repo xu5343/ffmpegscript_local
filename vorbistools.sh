@@ -28,7 +28,7 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
    cd $INSTALL_SDIR
 echo "removing old source"
-   rm -vrf vorbis-tools*
+   #rm -vrf vorbis-tools*
 
 if [ -f "$_package" ]
 	then
@@ -45,4 +45,5 @@ make -j$cpu
 make install
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

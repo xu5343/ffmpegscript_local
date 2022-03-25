@@ -28,7 +28,7 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 cd $INSTALL_SDIR/
-rm -rf yamdi*
+#rm -rf yamdi*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -45,4 +45,5 @@ make
 make install
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

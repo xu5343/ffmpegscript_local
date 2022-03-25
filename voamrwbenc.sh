@@ -29,7 +29,7 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 cd $INSTALL_SDIR/
-rm -rf vo-amrwbenc*
+#rm -rf vo-amrwbenc*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -43,4 +43,5 @@ cd vo-amrwbenc-0.1.3/
 	make -j$cpu
 	make install
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

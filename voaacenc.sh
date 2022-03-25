@@ -26,8 +26,9 @@ export TMPDIR=$HOME/tmp
 _package='vo-aacenc-0.1.3.tar.gz'
 clear
 sleep 2
+cd $INSTALL_SDIR
 echo -e $RED"Installation of $_package ....... started"$RESET
-rm -rf vo-aacenc*
+#rm -rf vo-aacenc*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -43,4 +44,5 @@ fi
 	make install
 ldconfig
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

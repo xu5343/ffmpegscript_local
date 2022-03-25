@@ -28,9 +28,10 @@ clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
+cd $INSTALL_SDIR
 echo "Removing old source"
 yum -y install bzip2
-rm -vrf $INSTALL_SDIR/x264-snapshot*
+#rm -vrf $INSTALL_SDIR/x264-snapshot*
    
 if [ -f "$_package" ]
 	then
@@ -46,4 +47,5 @@ cd x264-snapshot-*-stable/
 	make install
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2

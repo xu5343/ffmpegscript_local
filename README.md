@@ -19,8 +19,9 @@ it's free
 ### Installer  
 ```
 yum install git -y 
-git clone https://github.com/xu5343/ffmpegscript_local.git ffmpeginstaller  
-cd ffmpeginstaller  
+cd /usr/src
+git clone https://github.com/xu5343/ffmpegscript_local.git ffmpegscript  
+cd ffmpegscript 
 sh install.sh  
 ```
   

@@ -31,7 +31,7 @@ echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
 cd $INSTALL_SDIR
 echo "Removing old source"
-   rm -vrf xvid*
+   #rm -vrf xvid*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
@@ -46,4 +46,5 @@ make -j$cpu
 make install
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
+cd $INSTALL_SDIR
 sleep 2
