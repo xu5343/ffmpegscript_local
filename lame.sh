@@ -29,7 +29,6 @@ sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 lame_source=$_package
 ldconfig
-cd $INSTALL_SDIR
 echo "removing old source"
    rm -vrf lame*
 if [ -f "$_package" ]
