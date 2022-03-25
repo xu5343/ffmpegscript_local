@@ -26,8 +26,6 @@ _package='x265'
 clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-
-cd $INSTALL_SDIR/
 rm -rf x265*
 hg clone http://hg.videolan.org/x265
 cd x265/build/linux
