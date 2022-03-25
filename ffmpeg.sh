@@ -24,7 +24,7 @@ _ffinstal='/ffmpeginstaller'
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='FFMPEG'
+_package='ffmpeg-3.1.tar.gz'
 clear
 sleep 2
 ffmpeg_source=$_package
