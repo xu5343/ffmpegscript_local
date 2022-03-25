@@ -39,9 +39,10 @@ else
 fi
 tar -xzf $_package
 cd x265_3.2/build/linux
-cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$INSTALL_DDIR -DENABLE_SHARED:bool=off ../../source
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DENABLE_SHARED:bool=off ../../source
 make
 make install
+make clean
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2
