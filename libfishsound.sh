@@ -23,26 +23,25 @@ _url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='libfishsound-1.0.0.tar.gz'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-ldconfig
-cd $INSTALL_SDIR
-echo "Removing old source"
-rm -vrf yasm*
+
+cd $INSTALL_SDIR/
+rm -rf libfish*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget $_url/$_package
 fi
 tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
+cd libfishsound-1.0.0/
+./configure --prefix=$INSTALL_DDIR --with-vorbis=/usr/local/cpffmpeg  --with-FLAC=/usr/local/cpffmpeg  --with-speex=/usr/local/cpffmpeg
 make -j$cpu
 make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
 ldconfig
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

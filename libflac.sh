@@ -23,26 +23,25 @@ _url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='flac-1.3.0.tar.gz'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-ldconfig
-cd $INSTALL_SDIR
-echo "Removing old source"
-rm -vrf yasm*
+cd $INSTALL_SDIR/
+rm -rf flac*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget $_url/$_package
 fi
 tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
+cd flac-1.3.0/
+./configure --prefix=$INSTALL_DDIR
+
 make -j$cpu
 make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
 ldconfig
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

@@ -1,7 +1,7 @@
-﻿#!/bin/bash
+#!/bin/bash
 #FFMPEG安装脚本
 
-#  版权所有（C）2007-2016 Sherin.co.in。
+#  版权所有（C）2007-2016 Sherin.co.in。 版权所有,有如何问题请联系：jie5343@126.com。
 #
 #  此程序是免费软件; 您可以重新分发它和/或修改
 #  根据发布的GNU通用公共许可证的条款
@@ -19,30 +19,21 @@
 RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
-_url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='x265'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-ldconfig
-cd $INSTALL_SDIR
-echo "Removing old source"
-rm -vrf yasm*
-if [ -f "$_package" ]
-	then
-		echo "$_package found, Skip Downloads"
-else
-		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
-fi
-tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
-make -j$cpu
+
+cd $INSTALL_SDIR/
+rm -rf x265*
+hg clone http://hg.videolan.org/x265
+cd x265/build/linux
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$INSTALL_DDIR -DENABLE_SHARED:bool=off ../../source
+make
 make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
-ldconfig
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

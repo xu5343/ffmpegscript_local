@@ -23,26 +23,27 @@ _url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='re2c-0.13.6.tar.gz'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
 cd $INSTALL_SDIR
 echo "Removing old source"
-rm -vrf yasm*
+   rm -vrf re2c*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget $_url/$_package
 fi
-tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
+   tar -xvzf $_package
+   cd re2c-0.13.6/
+./configure --prefix=$INSTALL_DDIR
+
 make -j$cpu
 make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
-ldconfig
+ln -s /usr/local/cpffmpeg/bin/re2c /usr/local/bin/re2c
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

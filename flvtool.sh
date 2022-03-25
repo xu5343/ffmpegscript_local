@@ -1,7 +1,7 @@
 ﻿#!/bin/bash
 #FFMPEG安装脚本
 
-#  版权所有（C）2007-2016 Sherin.co.in。
+#  版权所有（C）2007-2014 Sherin.co.in。
 #
 #  此程序是免费软件; 您可以重新分发它和/或修改
 #  根据发布的GNU通用公共许可证的条款
@@ -23,26 +23,29 @@ _url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='flvtool2-1.0.6.tgz'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
+flvtool_source=$_package
+#install flvtool
 ldconfig
-cd $INSTALL_SDIR
-echo "Removing old source"
-rm -vrf yasm*
+   cd $INSTALL_SDIR
+echo "removing old source"
+   rm -vrf flvtool*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget $_url/$_package
 fi
-tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
-make -j$cpu
-make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
-ldconfig
+   tar -zxvf  $_package
+   cd flvtool2-1.0.6/
+   /usr/local/cpffmpeg/bin/ruby setup.rb config
+   /usr/local/cpffmpeg/bin/ruby setup.rb setup
+   /usr/local/cpffmpeg/bin/ruby setup.rb install
+   ln -s /usr/local/cpffmpeg/bin/flvtool2 /usr/local/bin/flvtool2
+   ln -s /usr/local/cpffmpeg/bin/flvtool2 /usr/bin/flvtool2
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

@@ -1,7 +1,7 @@
 ﻿#!/bin/bash
 #FFMPEG安装脚本
 
-#  版权所有（C）2007-2016 Sherin.co.in。
+#  版权所有（C）2007-2014 Sherin.co.in。
 #
 #  此程序是免费软件; 您可以重新分发它和/或修改
 #  根据发布的GNU通用公共许可证的条款
@@ -15,7 +15,6 @@
 #
 #  您应该已经收到GNU通用公共许可证的副本
 #  以及这个程序; 如果没有，写入自由软件
-#  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
@@ -23,26 +22,25 @@ _url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='fdk-aac-0.1.3.tar.gz'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-ldconfig
-cd $INSTALL_SDIR
-echo "Removing old source"
-rm -vrf yasm*
+
+cd $INSTALL_SDIR/
+rm -rf fdk-aac*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget $_url/$_package
 fi
 tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
-make -j$cpu
-make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
-ldconfig
+cd fdk-aac-0.1.3/
+	./configure  --prefix=$INSTALL_DDIR
+	make -j$cpu
+	make install
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

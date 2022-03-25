@@ -1,7 +1,7 @@
 ﻿#!/bin/bash
 #FFMPEG安装脚本
 
-#  版权所有（C）2007-2016 Sherin.co.in。
+#  版权所有（C）2007-2014 Sherin.co.in。 
 #
 #  此程序是免费软件; 您可以重新分发它和/或修改
 #  根据发布的GNU通用公共许可证的条款
@@ -23,26 +23,29 @@ _url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='all-20110131.tar.bz2'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
+codec_source=$_package
+
+#install codecs
 ldconfig
-cd $INSTALL_SDIR
-echo "Removing old source"
-rm -vrf yasm*
+   cd $INSTALL_SDIR
+echo "removing old source"
+   rm -fr all* 
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget $_url/$_package
 fi
-tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
-make -j$cpu
-make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
-ldconfig
+   tar -xvjf $codec_source
+   chown -R root.root all-20110131/
+   mkdir -pv $INSTALL_DDIR/lib/codecs/
+   cp -vrf all-20110131/* $INSTALL_DDIR/lib/codecs/
+   chmod -R 755 /usr/local/cpffmpeg/lib/codecs/
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

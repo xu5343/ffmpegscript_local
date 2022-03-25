@@ -23,26 +23,34 @@ _url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='nasm-2.06rc1.tar.gz'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
 cd $INSTALL_SDIR
 echo "Removing old source"
-rm -vrf yasm*
+if [ -e "/etc/yum.conf" ];then
+yum -y install nasm
+fi
+if [ -e "/usr/bin/nasm" ]; then
+	ln -sf /usr/bin/nasm  /usr/local/cpffmpeg/bin/nasm
+else
+	rm -vrf nasm*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget $_url/$_package
 fi
-tar -xvzf $_package
-cd  yasm-1.2.0/
+	tar -xvzf $_package
+	cd  nasm-2.06rc1/
 	./configure --prefix=/usr/local/cpffmpeg/ 
-make -j$cpu
-make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
+	make -j$cpu
+	make install
+	ln -sf /usr/local/cpffmpeg/bin/nasm /usr/local/bin/nasm
+fi
 ldconfig
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

@@ -20,29 +20,30 @@ RED='\033[01;31m'
 RESET='\033[0m'
 INSTALL_SDIR='/usr/src/ffmpegscript'
 _url=`cat ./url.txt`
+SOURCE_URL=$_url/xvidcore/
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='xvidcore-1.3.2.tar.gz'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
 ldconfig
 cd $INSTALL_SDIR
 echo "Removing old source"
-rm -vrf yasm*
+   rm -vrf xvid*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget https://downloads.xvid.com/downloads/$_package
 fi
-tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
+   tar -xvzf $_package
+   cd xvidcore/build/generic/
+./configure --prefix=$INSTALL_DDIR
 make -j$cpu
 make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
-ldconfig
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

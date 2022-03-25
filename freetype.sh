@@ -1,7 +1,7 @@
 ﻿#!/bin/bash
 #FFMPEG安装脚本
 
-#  版权所有（C）2007-2016 Sherin.co.in。
+#  版权所有（C）2007-2014 Sherin.co.in。
 #
 #  此程序是免费软件; 您可以重新分发它和/或修改
 #  根据发布的GNU通用公共许可证的条款
@@ -23,26 +23,27 @@ _url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
-sleep 2
+_package='freetype-2.5.2.tar.gz'
+clear
 echo -e $RED"Installation of $_package ....... started"$RESET
+subversion=$_package
 ldconfig
 cd $INSTALL_SDIR
-echo "Removing old source"
-rm -vrf yasm*
+echo "removing old source"
+   rm -vrf freetype*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget $_url/$_package
 fi
-tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
+   tar -zxvf $_package
+   cd freetype-2.5.2/
+   ./configure --prefix=$INSTALL_DDIR 
+
 make -j$cpu
 make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
-ldconfig
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2

@@ -23,26 +23,32 @@ _url=`cat ./url.txt`
 INSTALL_DDIR='/usr/local/cpffmpeg'
 export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
-_package='yasm-1.2.0.tar.gz'
+_package='git-1.7.2.5.tar.gz'
+clear
 sleep 2
 echo -e $RED"Installation of $_package ....... started"$RESET
-ldconfig
-cd $INSTALL_SDIR
-echo "Removing old source"
-rm -vrf yasm*
+if [ -e "/etc/yum.conf" ];then
+	yum -y install git
+fi
+if [ -e "/usr/bin/git" ]; then
+	mkdir -pv /usr/local/cpffmpeg/bin/
+	ln -sf /usr/bin/git  /usr/local/cpffmpeg/bin/git
+else
+	cd $INSTALL_SDIR/
+	rm -rf git*
 if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget https://www.tortall.net/projects/yasm/releases/$_package
+		wget $_url/$_package
 fi
-tar -xvzf $_package
-cd  yasm-1.2.0/
-	./configure --prefix=/usr/local/cpffmpeg/ 
-make -j$cpu
-make install
-ln -sf /usr/local/cpffmpeg/bin/yasm /usr/local/bin/yasm
-ldconfig
+	tar -xzf git-1.7.2.5.tar.gz
+	cd git-1.7.2.5/
+	./configure --prefix=/usr/
+	make -j$cpu
+	make install
+fi
+
 echo -e $RED"Installation of $_package ....... Completed"$RESET
 sleep 2
