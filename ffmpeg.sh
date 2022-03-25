@@ -29,7 +29,6 @@ sleep 2
 ffmpeg_source=$_package
 ldconfig
 echo -e $RED"Installation of $_package ....... started"$RESET
-cd $INSTALL_SDIR
 echo "Removing old source"
    rm -vrf ffmpeg*
 if [ -f "$_package" ]
