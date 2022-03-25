@@ -35,7 +35,6 @@ if [ -e "/usr/bin/git" ]; then
 	mkdir -pv /usr/local/cpffmpeg/bin/
 	ln -sf /usr/bin/git  /usr/local/cpffmpeg/bin/git
 else
-	cd $INSTALL_SDIR/
 	rm -rf git*
 	if [ -f "$_package" ]
 	then
