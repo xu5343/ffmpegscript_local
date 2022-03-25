@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/xu5343/ffmpegscript_local/master
+--no-check-certificate https://sourceforge.net/projects/source5343/files
