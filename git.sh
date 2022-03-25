@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 #FFMPEG安装脚本
 
 #  版权所有（C）2007-2016 Sherin.co.in。
@@ -36,13 +36,13 @@ if [ -e "/usr/bin/git" ]; then
 else
 	cd $INSTALL_SDIR/
 	rm -rf git*
-if [ -f "$_package" ]
+	if [ -f "$_package" ]
 	then
 		echo "$_package found, Skip Downloads"
-else
+	else
 		echo "$_package not found, Try Downloading......"
 		wget $_url/$_package
-fi
+	fi
 	tar -xzf git-1.7.2.5.tar.gz
 	cd git-1.7.2.5/
 	./configure --prefix=/usr/
@@ -51,4 +51,4 @@ fi
 fi
 
 echo -e $RED"Installation of $_package ....... Completed"$RESET
-sleep 2
+sleep
