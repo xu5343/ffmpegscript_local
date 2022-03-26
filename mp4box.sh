@@ -38,7 +38,7 @@ if [ -f "$_package" ]
 		echo "$_package found, Skip Downloads"
 else
 		echo "$_package not found, Try Downloading......"
-		wget --no-check-certificate https://master.dl.sourceforge.net/project/source5343/gpac/$_package?viasf=1
+		wget --no-check-certificate https://master.dl.sourceforge.net/project/source5343/gpac/$_package
 fi
 tar -xvzf $_package
 cd gpac/
