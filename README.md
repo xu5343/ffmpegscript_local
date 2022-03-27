@@ -1,5 +1,4 @@
-# ffmpegscript_local
-ffmpegscript_软件源更新本地
+# ffmpegscript_软件源更新本地，2022/03/02 CentOS 7.*测试通过
 
 # automatically installer ffmpeg scripts
 it's free  
