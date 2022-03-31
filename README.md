@@ -17,11 +17,11 @@ it's free
 
 ### Installer  
 ```
-yum install git -y 
+yum install git -y
 cd /
-git clone https://github.com/xu5343/ffmpegscript_local.git ffmpeginstaller  
-cd ffmpeginstaller 
-sh install.sh  
+git clone https://github.com/xu5343/ffmpegscript_local.git ffmpeginstaller
+cd ffmpeginstaller
+sh install.sh
 ```
   
 ### Check Path  
