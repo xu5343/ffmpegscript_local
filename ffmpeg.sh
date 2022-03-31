@@ -58,6 +58,8 @@ export PKG_CONFIG_PATH=/usr/local/cpffmpeg/lib/pkgconfig
    cp -vf tools/qt-faststart /usr/local/cpffmpeg/bin/
    ln -sf /usr/local/cpffmpeg/bin/ffmpeg /usr/local/bin/ffmpeg
    ln -sf /usr/local/cpffmpeg/bin/ffmpeg /usr/bin/ffmpeg
+   ln -sf /usr/local/cpffmpeg/bin/ffprobe /usr/local/bin/ffprobe
+   ln -sf /usr/local/cpffmpeg/bin/ffprobe /usr/bin/ffprobe
    ln -sf /usr/local/cpffmpeg/bin/qt-faststart /usr/local/bin/qt-faststart
    ln -sf /usr/local/cpffmpeg/bin/qt-faststart /usr/bin/qt-faststart
    ldconfig
