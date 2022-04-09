@@ -30,7 +30,7 @@ sh presetup.sh
 
 if [ -e "/etc/yum.conf" ];then
         echo "Ensuring required RPM ........"
-        yum install bzip2 glib glib2 bzip2 openssl-devel xz unzip cmake ruby mercurial hg numactl numactl-devel mediainfo re2c subversion doxygen SDL-devel freeglut-devel openssl-devel openjpeg-devel fribidi-devel fribidi gcc gcc-c++ libgcc gd gd-devel gettext freetype \
+        yum -y install bzip2 glib glib2 bzip2 openssl-devel xz unzip cmake ruby mercurial hg numactl numactl-devel mediainfo re2c subversion doxygen SDL-devel freeglut-devel openssl-devel openjpeg-devel fribidi-devel fribidi gcc gcc-c++ libgcc gd gd-devel gettext freetype \
         	freetype-devel ImageMagick ImageMagick-devel libjpeg* libjpeg-devel* \
         	libpng* libpng-devel* libstdc++* libstdc++-devel* libtiff* \
         	libtiff-devel* libtool*  libxml* libxml2* \
