@@ -28,6 +28,7 @@ clear
 sleep 2
 cd $_ffinstal
 echo -e $RED"Installation of $_package ....... started"$RESET
+yum -y install hg
 #rm -rf x265*
 #if [ -f "$_package" ]
 #	then
