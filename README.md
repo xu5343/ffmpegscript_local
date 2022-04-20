@@ -50,3 +50,21 @@ which {php,ffmpeg,ffprobe,qt-faststart,mplayer,mencoder,flvtool2,MP4Box,yamdi,me
 /usr/local/bin/mediainfo  
 /usr/local/bin/neroAacEnc  
 ```
+
+# ffmpeg，二进制简单安装方法：
+```
+#适用32bit系统
+wget --no-check-certificate  https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-i686-static.tar.xz
+#适用64bit系统
+wget --no-check-certificate  https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+
+#解压文件
+tar xvf ffmpeg-*-static.tar.xz && rm -rf ffmpeg-*-static.tar.xz
+
+#将ffmpeg和ffprobe可执行文件移至/usr/bin方便系统直接调用
+mv ffmpeg-*/ffmpeg  ffmpeg-*/ffprobe /usr/bin/
+
+#查看版本
+ffmpeg
+ffprobe
+```
